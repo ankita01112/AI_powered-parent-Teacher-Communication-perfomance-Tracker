@@ -27,7 +27,7 @@ const SemesterPage = () => {
 
   const fetchCourses = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/api/courses', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/courses', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCourses(res.data);
@@ -40,7 +40,7 @@ const SemesterPage = () => {
   const fetchSemesters = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get('http://localhost:4000/api/semesters', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/semesters', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSemesters(res.data);
@@ -70,12 +70,12 @@ const SemesterPage = () => {
 
     try {
       if (editingId) {
-        await axios.put(`http://localhost:4000/api/semesters/${editingId}`, payload, {
+        await axios.put(`https://student-performance-api-ankita.onrender.com/api/semesters/${editingId}`, payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
         showNotification('Semester updated successfully!', 'success');
       } else {
-        await axios.post('http://localhost:4000/api/semesters', payload, {
+        await axios.post('https://student-performance-api-ankita.onrender.com/api/semesters', payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
         showNotification('Semester added successfully!', 'success');
@@ -117,7 +117,7 @@ const SemesterPage = () => {
     if (!window.confirm('Are you sure you want to delete this semester?')) return;
 
     try {
-      await axios.delete(`http://localhost:4000/api/semesters/${id}`, {
+      await axios.delete(`https://student-performance-api-ankita.onrender.com/api/semesters/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       

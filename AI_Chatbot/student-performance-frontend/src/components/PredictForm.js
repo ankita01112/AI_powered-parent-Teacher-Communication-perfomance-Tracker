@@ -46,7 +46,7 @@ const PredictStudent = () => {
     const loadStudents = async () => {
       try {
         setIsLoadingStudents(true);
-        const res = await axios.get("http://localhost:4000/api/students");
+        const res = await axios.get("https://student-performance-api-ankita.onrender.com/api/students");
         setStudents(res.data);
 
         // Auto-select student from URL (if present)
@@ -125,7 +125,7 @@ const PredictStudent = () => {
       // 3-second delay to show AI prediction loading
       await new Promise(resolve => setTimeout(resolve, 3000));
 
-      const res = await axios.post("http://localhost:4000/api/predict", payload);
+      const res = await axios.post("https://student-performance-api-ankita.onrender.com/api/predict", payload);
       
       console.log("Prediction response:", res.data);
       

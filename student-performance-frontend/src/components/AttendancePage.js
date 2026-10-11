@@ -21,7 +21,7 @@ const AttendancePage = () => {
     // For this demo, we'll use a placeholder or you can replace with your actual token handling
     const token = typeof window !== 'undefined' && window.localStorage ? localStorage.getItem('token') : null;
     return axios.create({
-      baseURL: 'http://localhost:4000/api',
+      baseURL: 'https://student-performance-api-ankita.onrender.com/api',
       headers: {
         Authorization: token ? `Bearer ${token}` : '',
       },

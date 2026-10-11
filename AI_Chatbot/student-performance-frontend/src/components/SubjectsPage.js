@@ -41,7 +41,7 @@ const SubjectsPage = () => {
   const fetchSubjects = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get('http://localhost:4000/api/subjects', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/subjects', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSubjects(res.data);
@@ -55,7 +55,7 @@ const SubjectsPage = () => {
 
   const fetchCourses = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/api/courses', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/courses', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCourses(res.data);
@@ -67,7 +67,7 @@ const SubjectsPage = () => {
 
   const fetchSemesters = async (courseId) => {
     try {
-      const res = await axios.get(`http://localhost:4000/api/semesters?course_id=${courseId}`, {
+      const res = await axios.get(`https://student-performance-api-ankita.onrender.com/api/semesters?course_id=${courseId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSemesters(res.data);
@@ -104,12 +104,12 @@ const SubjectsPage = () => {
 
     try {
       if (editId) {
-        await axios.put(`http://localhost:4000/api/subjects/${editId}`, payload, {
+        await axios.put(`https://student-performance-api-ankita.onrender.com/api/subjects/${editId}`, payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
         showNotification('Subject updated successfully!', 'success');
       } else {
-        await axios.post('http://localhost:4000/api/subjects', payload, {
+        await axios.post('https://student-performance-api-ankita.onrender.com/api/subjects', payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
         showNotification('Subject added successfully!', 'success');
@@ -156,7 +156,7 @@ const SubjectsPage = () => {
     if (!window.confirm('Are you sure you want to delete this subject?')) return;
     
     try {
-      await axios.delete(`http://localhost:4000/api/subjects/${id}`, {
+      await axios.delete(`https://student-performance-api-ankita.onrender.com/api/subjects/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       

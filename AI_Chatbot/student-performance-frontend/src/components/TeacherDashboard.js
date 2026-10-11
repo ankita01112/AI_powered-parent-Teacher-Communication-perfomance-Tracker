@@ -82,7 +82,7 @@ const TeacherDashboard = () => {
 
   const fetchStudents = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/students');
+      const response = await fetch('https://student-performance-api-ankita.onrender.com/api/students');
       if (!response.ok) throw new Error('Failed to fetch students');
       const data = await response.json();
       setStudents(Array.isArray(data) ? data : []);
@@ -94,7 +94,7 @@ const TeacherDashboard = () => {
 
   const fetchAttendance = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/attendance');
+      const response = await fetch('https://student-performance-api-ankita.onrender.com/api/attendance');
       if (!response.ok) throw new Error('Failed to fetch attendance');
       const data = await response.json();
       setAttendance(Array.isArray(data) ? data : []);
@@ -106,7 +106,7 @@ const TeacherDashboard = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/courses');
+      const response = await fetch('https://student-performance-api-ankita.onrender.com/api/courses');
       if (!response.ok) throw new Error('Failed to fetch courses');
       const data = await response.json();
       setCourses(Array.isArray(data) ? data : []);
@@ -118,7 +118,7 @@ const TeacherDashboard = () => {
 
   const fetchSubjects = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/subjects');
+      const response = await fetch('https://student-performance-api-ankita.onrender.com/api/subjects');
       if (!response.ok) throw new Error('Failed to fetch subjects');
       const data = await response.json();
       setSubjects(Array.isArray(data) ? data : []);

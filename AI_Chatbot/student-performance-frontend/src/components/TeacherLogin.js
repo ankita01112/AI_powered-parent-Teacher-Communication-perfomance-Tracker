@@ -17,7 +17,7 @@ const TeacherLogin = () => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:4000/api/teachers/login', { email, password });
+      const res = await axios.post('https://student-performance-api-ankita.onrender.com/api/teachers/login', { email, password });
 
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('teacherName', res.data.teacher.name);

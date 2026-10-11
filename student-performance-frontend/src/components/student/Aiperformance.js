@@ -48,13 +48,13 @@ const StudentPredict = () => {
     const fetchStudentData = async () => {
       try {
         const token = localStorage.getItem('token'); // Ensure token is available
-        const studentRes = await axios.get(`http://localhost:4000/api/students/${loggedInStudentId}`, {
+        const studentRes = await axios.get(`https://student-performance-api-ankita.onrender.com/api/students/${loggedInStudentId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const studentData = studentRes.data;
 
         // Fetch project and assignment scores
-        const scoresRes = await axios.get(`http://localhost:4000/api/scores/student/${loggedInStudentId}`, {
+        const scoresRes = await axios.get(`https://student-performance-api-ankita.onrender.com/api/scores/student/${loggedInStudentId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const scoreData = scoresRes.data; // Will be {} if no scores exist
@@ -121,7 +121,7 @@ const StudentPredict = () => {
       };
 
       const token = localStorage.getItem('token'); // Ensure token is sent with prediction request
-      const res = await axios.post("http://localhost:4000/api/predict", payload, {
+      const res = await axios.post("https://student-performance-api-ankita.onrender.com/api/predict", payload, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setPrediction(res.data.prediction);

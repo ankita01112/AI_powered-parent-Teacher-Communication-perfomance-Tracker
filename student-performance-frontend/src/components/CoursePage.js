@@ -27,7 +27,7 @@ const CoursePage = () => {
   const fetchCourses = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get('http://localhost:4000/api/courses', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/courses', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCourses(res.data);
@@ -54,7 +54,7 @@ const CoursePage = () => {
       if (editingId) {
         // Update existing course
         await axios.put(
-          `http://localhost:4000/api/courses/${editingId}`,
+          `https://student-performance-api-ankita.onrender.com/api/courses/${editingId}`,
           { 
             course_code: courseCode.trim(), 
             course_name: courseName.trim() 
@@ -65,7 +65,7 @@ const CoursePage = () => {
       } else {
         // Create new course
         await axios.post(
-          'http://localhost:4000/api/courses',
+          'https://student-performance-api-ankita.onrender.com/api/courses',
           { 
             course_code: courseCode.trim(), 
             course_name: courseName.trim() 
@@ -119,7 +119,7 @@ const CoursePage = () => {
     if (!window.confirm('Are you sure you want to delete this course?')) return;
 
     try {
-      await axios.delete(`http://localhost:4000/api/courses/${id}`, {
+      await axios.delete(`https://student-performance-api-ankita.onrender.com/api/courses/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       

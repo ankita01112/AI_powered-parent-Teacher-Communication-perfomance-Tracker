@@ -61,7 +61,7 @@ const AttendanceView = () => {
   const fetchCourses = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('http://localhost:4000/api/courses', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/courses', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCourses(res.data);
@@ -76,7 +76,7 @@ const AttendanceView = () => {
 
   const fetchSemesters = async (courseId) => {
     try {
-      const res = await axios.get(`http://localhost:4000/api/semesters?course_id=${courseId}`, {
+      const res = await axios.get(`https://student-performance-api-ankita.onrender.com/api/semesters?course_id=${courseId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSemesters(res.data);
@@ -88,7 +88,7 @@ const AttendanceView = () => {
 
   const fetchStudents = async (courseId, semesterId) => {
     try {
-      const res = await axios.get(`http://localhost:4000/api/students?course_id=${courseId}&semester_id=${semesterId}`, {
+      const res = await axios.get(`https://student-performance-api-ankita.onrender.com/api/students?course_id=${courseId}&semester_id=${semesterId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStudents(res.data);
@@ -102,7 +102,7 @@ const AttendanceView = () => {
     try {
       setLoading(true);
       setError('');
-      const res = await axios.get('http://localhost:4000/api/attendance', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/attendance', {
         headers: { Authorization: `Bearer ${token}` },
       });
 

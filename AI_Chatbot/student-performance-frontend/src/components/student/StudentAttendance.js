@@ -29,7 +29,7 @@ const StudentAttendance = () => {
   useEffect(() => {
     const fetchAttendance = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/attendance/student/${studentId}`);
+        const res = await axios.get(`https://student-performance-api-ankita.onrender.com/api/attendance/student/${studentId}`);
         setAttendance(res.data);
       } catch (err) {
         console.error(err);

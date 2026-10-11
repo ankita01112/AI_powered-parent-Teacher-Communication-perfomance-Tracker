@@ -47,7 +47,7 @@ const StudentDashboard = () => {
       const fetchStudentData = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:4000/api/students/${studentId}`
+            `https://student-performance-api-ankita.onrender.com/api/students/${studentId}`
           );
           setStudent(response.data);
         } catch (error) {

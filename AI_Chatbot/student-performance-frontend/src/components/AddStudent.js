@@ -30,7 +30,7 @@ const AddStudent = () => {
   const fetchCourses = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:4000/api/courses', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/courses', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCourses(res.data);
@@ -42,7 +42,7 @@ const AddStudent = () => {
   const fetchSemesters = async (courseId) => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get(`http://localhost:4000/api/semesters?course_id=${courseId}`, {
+      const res = await axios.get(`https://student-performance-api-ankita.onrender.com/api/semesters?course_id=${courseId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSemesters(res.data);
@@ -68,7 +68,7 @@ const AddStudent = () => {
     
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:4000/api/students', form, {
+      await axios.post('https://student-performance-api-ankita.onrender.com/api/students', form, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMsg('✅ Student added successfully!');

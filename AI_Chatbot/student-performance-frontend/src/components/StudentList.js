@@ -24,7 +24,7 @@ const StudentList = () => {
 
   const fetchCourses = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/api/courses', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/courses', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCourses(res.data);
@@ -35,7 +35,7 @@ const StudentList = () => {
 
   const fetchSemesters = async (courseId) => {
     try {
-      const res = await axios.get(`http://localhost:4000/api/semesters?course_id=${courseId}`, {
+      const res = await axios.get(`https://student-performance-api-ankita.onrender.com/api/semesters?course_id=${courseId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSemesters(res.data);
@@ -47,9 +47,9 @@ const StudentList = () => {
   const fetchStudents = async (courseId = null, semesterId = null) => {
     setLoading(true);
     try {
-      let url = 'http://localhost:4000/api/students';
+      let url = 'https://student-performance-api-ankita.onrender.com/api/students';
       if (courseId && semesterId) {
-        url = `http://localhost:4000/api/students?course_id=${courseId}&semester_id=${semesterId}`;
+        url = `https://student-performance-api-ankita.onrender.com/api/students?course_id=${courseId}&semester_id=${semesterId}`;
       }
 
       const res = await axios.get(url, {
@@ -105,7 +105,7 @@ const StudentList = () => {
 
   const saveEdit = async () => {
     try {
-      await axios.put(`http://localhost:4000/api/students/${editing}`, form, {
+      await axios.put(`https://student-performance-api-ankita.onrender.com/api/students/${editing}`, form, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMsg('✅ Student updated successfully');
@@ -121,7 +121,7 @@ const StudentList = () => {
   const deleteStudent = async (id) => {
     if (!window.confirm('Are you sure you want to delete this student?')) return;
     try {
-      await axios.delete(`http://localhost:4000/api/students/${id}`, {
+      await axios.delete(`https://student-performance-api-ankita.onrender.com/api/students/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchStudents(selectedCourse, selectedSem);

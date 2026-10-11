@@ -70,7 +70,7 @@ const TeacherSignup = () => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:4000/api/teachers/signup', form);
+      const res = await axios.post('https://student-performance-api-ankita.onrender.com/api/teachers/signup', form);
       setMsg('✅ Signup successful!');
       
       // Optional: Reset form on success

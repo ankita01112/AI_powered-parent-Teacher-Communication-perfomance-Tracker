@@ -47,7 +47,7 @@ const StudentPredict = () => {
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/students/${loggedInStudentId}`);
+        const res = await axios.get(`https://student-performance-api-ankita.onrender.com/api/students/${loggedInStudentId}`);
         const s = res.data;
         setForm((prev) => ({
           ...prev,
@@ -97,7 +97,7 @@ const StudentPredict = () => {
         past_backlogs: parseInt(form.past_backlogs),
       };
 
-      const res = await axios.post("http://localhost:4000/api/predict", payload);
+      const res = await axios.post("https://student-performance-api-ankita.onrender.com/api/predict", payload);
       setPrediction(res.data.prediction);
       setMessage("🎯 Prediction completed successfully!");
     } catch (err) {

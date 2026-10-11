@@ -47,7 +47,7 @@ const PredictStudent = () => {
       try {
         setIsLoadingStudents(true);
         const token = localStorage.getItem('token'); // Ensure token is available for API calls
-        const res = await axios.get("http://localhost:4000/api/students", {
+        const res = await axios.get("https://student-performance-api-ankita.onrender.com/api/students", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setStudents(res.data);
@@ -82,7 +82,7 @@ const PredictStudent = () => {
   const fetchStudentScores = async (studentId) => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get(`http://localhost:4000/api/scores/student/${studentId}`, {
+      const res = await axios.get(`https://student-performance-api-ankita.onrender.com/api/scores/student/${studentId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const scoreData = res.data; // This will be {} if no scores exist
@@ -178,7 +178,7 @@ const PredictStudent = () => {
       await new Promise(resolve => setTimeout(resolve, 3000));
 
       const token = localStorage.getItem('token');
-      const res = await axios.post("http://localhost:4000/api/predict", payload, {
+      const res = await axios.post("https://student-performance-api-ankita.onrender.com/api/predict", payload, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

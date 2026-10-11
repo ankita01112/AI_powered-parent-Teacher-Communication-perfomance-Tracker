@@ -42,7 +42,7 @@ const MarksPage = () => {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/api/students', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/students', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStudents(res.data);
@@ -54,7 +54,7 @@ const MarksPage = () => {
 
   const fetchSubjects = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/api/subjects', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/subjects', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSubjects(res.data);
@@ -67,7 +67,7 @@ const MarksPage = () => {
   const fetchMarks = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get('http://localhost:4000/api/marks', {
+      const res = await axios.get('https://student-performance-api-ankita.onrender.com/api/marks', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMarks(res.data);
@@ -120,17 +120,17 @@ const MarksPage = () => {
 
     try {
       if (editId) {
-        await axios.put(`http://localhost:4000/api/marks/${editId}`, payload, {
+        await axios.put(`https://student-performance-api-ankita.onrender.com/api/marks/${editId}`, payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
         showNotification('Marks updated successfully!', 'success');
       } else {
-        await axios.post('http://localhost:4000/api/marks', payload, {
+        await axios.post('https://student-performance-api-ankita.onrender.com/api/marks', payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
         showNotification('Marks added successfully!', 'success');
       }
-      await axios.post('http://localhost:4000/api/scores', {
+      await axios.post('https://student-performance-api-ankita.onrender.com/api/scores', {
         student_id: payload.student_id,
         project_score: parseInt(scoreForm.project_score || 0),
         assignment_score: parseInt(scoreForm.assignment_score || 0)
@@ -172,7 +172,7 @@ const MarksPage = () => {
     setEditId(mark.id);
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    axios.get(`http://localhost:4000/api/scores/student/${mark.student_id}`, {
+    axios.get(`https://student-performance-api-ankita.onrender.com/api/scores/student/${mark.student_id}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then(res => {
@@ -196,7 +196,7 @@ const MarksPage = () => {
     if (!window.confirm('Are you sure you want to delete this mark record?')) return;
 
     try {
-      await axios.delete(`http://localhost:4000/api/marks/${id}`, {
+      await axios.delete(`https://student-performance-api-ankita.onrender.com/api/marks/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       
