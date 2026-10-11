@@ -1,0 +1,52 @@
+[
+  {
+    "tag": "greeting",
+    "patterns": ["hi", "hello", "hey", "good morning", "good evening"],
+    "response": "👋 Hello! How can I assist you with your academics today?"
+  },
+  {
+    "tag": "attendance",
+    "patterns": ["what is my attendance", "show attendance", "how much attendance"],
+    "db_field": "attendance"
+  },
+  {
+    "tag": "avg_test_score",
+    "patterns": ["test score", "average test", "average marks"],
+    "db_field": "avg_test_score"
+  },
+  {
+    "tag": "project_score",
+    "patterns": ["project marks", "project score"],
+    "db_field": "project_score"
+  },
+  {
+    "tag": "assignment_score",
+    "patterns": ["assignment", "assignment marks", "how much in assignment"],
+    "db_field": "assignment_score"
+  },
+  {
+    "tag": "backlogs",
+    "patterns": ["any backlogs", "pending subjects", "past backlogs"],
+    "db_field": "past_backlogs"
+  },
+  {
+    "tag": "performance",
+    "patterns": ["performance", "prediction", "how am I doing", "ai prediction"],
+    "db_field": "last_prediction"
+  },
+  {
+    "tag": "subject_marks",
+    "patterns": ["subject wise marks", "exam scores", "detailed marks", "show all subjects", "marks"],
+    "action": "subject_scores"
+  },
+  {
+    "tag": "thanks",
+    "patterns": ["thank you", "thanks", "ok got it"],
+    "response": "🙏 You're welcome! Let me know if you have more questions."
+  },
+  {
+    "tag": "fallback",
+    "patterns": [],
+    "response": "🤖 Sorry, I didn’t understand that. Could you rephrase your question?"
+  }
+]
